@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      p:first-of-type {
+        color: red;
+      }
+      p:last-of-type {
+        color: blue;
+      }
+      p:nth-of-type(2) {
+        color: green;
+      }
+      p:nth-last-of-type(2) {
+        color: orange;
+      }
+      p:first-of-type {
+        color: burlywood;
+        background-color: brown;
+      }
+
+      p:first-child {
+        /* 선택이 잘못 된 것. first-child 형제 요소 그룹중에 첫번째 요소를 나타냄. 근데 p의 형제 요소에는 h1이 들어가 있는데, h1은 p가 
+        아니니까, p:first-child 들어갈 수 없는 것!  */
+        /* 하지만 first-of-type은 형제 요소 그룹 중 해당 타입의 첫번째 요소, 그러니까, p의 요소의 첫번째를 꾸미는것.  */
+      }
+      h1:first-child {
+        background-color: chartreuse;
+        /* h1의 first-child는 작동한다.  */
+      }
+
+      /* :first-child => 형제 요소의 그룹 중 첫번째 요소를 나타낸다.
+
+        :first-of-type =>  형제 요소의 그룹 중 해당 타입의 첫번째 요소를 나타낸다.
+ */
+    </style>
+  </head>
+
+  <body>
+    <h1>This is heading</h1>
+    <p>The first paragraph</p>
+    <p>The second paragraph</p>
+    <p>The third paragraph</p>
+    <p>The fourth paragraph</p>
+
+    <div>
+      <h1>This is a heading</h1>
+      <p>The first paragraph</p>
+      <p>The second paragraph</p>
+      <p>The third paragraph</p>
+      <p>The fourth paragraph</p>
+    </div>
+  </body>
+</html>
