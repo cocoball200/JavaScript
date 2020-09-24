@@ -1,92 +1,86 @@
 <!DOCTYPE html>
-<html>
+<htm>
+  <head>
+    <meta charset="UTF-8" />
+    <meta lang="eng" />
+    <title>Google</title>
+    <meta
+      name="description"
+      content="Search the world's information, including webpages, images, videos and more. Google has many special features to help you find exactly what you're looking .."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- menu -->
+    <div class="menu-bar">
+      <div class="menu-bar__column">
+        <a href="#"><span>Gmail</span></a>
+      </div>
+      <div class="menu-bar__column">
+        <a href="#"><span>이미지</span></a>
+      </div>
+      <div class="menu-bar__column">
+        <a href="#"><i class="fas fa-th fa-lg"></i></a>
+      </div>
+      <div class="menu-bar__column">
+        <a href="#"><div class="menu-bar__column__round">M</div></a>
+      </div>
+    </div>
+    <!-- logo -->
+    <div class="logo">
+      <a href="#"><img src="img/googlelogo.png" class="logo__img" /></a>
+    </div>
 
-<head>
-<meta charset="utf-8">
-<title> Hello world</title>
-<script></script>
-</head>
-<body>
-<h1> 빈 요소</h1>
-<p> br,hr,img,input,link,meta 는 content가 없으며 attribute만을 가질 수 있다.</p>
-<p> img src ="html.png" src = 어트리뷰트 명, html.png는 속성 값. </p>
+    <!-- search part -->
+    <div>
+      <form class="search-bar">
+        <div class="search-bar__column">
+          <i class="fas fa-search"></i>
+          <input type="text" />
 
-<h1> 글로벌 어트리뷰트 HTML GLOBAL Attribute</h1>
-<p> id =중복x, 유일한 식별자 / class =중복가능, 스타일시트에 정의된 class를 요소에 지정한다. </br>
-hidden = css의 hidden과는 다르게 의미상으로도 브라우저에 노출되지 않음. 
-lang = 지정된 요소의 언어를 지정, 검색엔진의 크롤링시 웹페이지의 언어를 인식할 수 있게 한다. 
-style = 요소에 인라인 스타일 지정 tabindex = 사용자가 키보드로 페이지를 내비게이션 시 이동순서를 지정, 
-title =요소에 관한 제목을 지정한다. 
+          <i class="fas fa-keyboard"></i>
+          <i class="fas fa-microphone"></i>
+        </div>
+      </form>
 
+      <div class="search-bar__column">
+        <span>Google 검색 </span>
+        <span>I'm feeling lucky</span>
+      </div>
+    </div>
 
+    <!-- ad? 밑에 글 두개  -->
 
-  <h1> Document Type Definition(DTD) 
-    문서 형식 정의 태그는 출력할 웹페이지의 형식을 브라우저에게 전달한다. 문서의 최상위에 위치해야 하며, 대소문자를 구별하지 않는다.  </h1>
-  <h1> html tag => html 태그는 모든 html 요소의 부모 요소이며 웹페이지에 단 하나만 존재한다.
-     즉 모든 요소는 html 요소의 자식요소. html 내부에 기술</h1>  
-  <h1> head tag</h1> 
-  <h2> head 요소는 메타데이터를 포함하기 위한 요소이며, 웹페이지에 단 하나만 존재한다. 메타데이터는 html의 문서의 title, style, link, script에 대한 데이터로
-    화면에 표시되지 않음. head 요소에는 메타데이터 이외의 화면에 표시되는 일체의 요소를 포함할 수 없음. 
-  </h2>
-  <h1>Style tage</h1>
-  <h1>link tag</h1>
-  <h2> link 요소에는 외부 리소스와의 연계정보를 정의한다. 주로 html과 css파일을 연계에 사용된다
-     예) link rel ="stylesheet" href="style.css"</h2>
-  <h1> script tag </h1>
-  <ul>
-    <li> meta tag</li>
-    <li> seo(검색 엔진 최적화를 위해 검색 엔진이 사용할 키워드들을 정의)</li>
-    <li> meta name ="keywords" content="HTML, CSS, XHTML, JavaScript" </li>
-    <li> meta name ="description" content ="web tutorilas on HTML and css" </li>
-    <li> meta name ="author content="Mia"</li>
-    <li> meta http-equiv="refresh" content="30 "   ** 웹페이지를 30초 마다 리프레시 한다. </li>
-  </ul>
+    <div class="ad">
+      <span class="ad__column">
+        Google Ads를 활용한 헬스케어 스타트업의 글로벌 진출기를 확인해보세요
+      </span>
+    </div>
 
-  <ul>
-    <li> Body tag</li>
-    <li> body tag는 html 문서의 내용을 나타내며 웹페이지에 단 하나만 존재한다. 메타데이터를 제외한 웹페이지를 구성하는 대부분의 요소가
-      body 요소 내에 기술. 
-    </li>
-  </ul>
+    <div class="offer-service">
+      <span>Google 제공 서비스:<a href="#">English</a> </span>
+    </div>
 
-  <ul>
+    <!--  footer? 밑에 부분 -->
 
-    <li> Heading 태그</li>
-    <h1> heading tag는 제목을 나타낼때 사용하며, h1에서 h6까지의 태그가 있다. h1이 가장 중요한 제목을 의미한다. 
-      시멘틱 웹의 의미를 살려서 제목이외에는 사용하지 않는 것이 좋다. 검색 엔진은 제목 태그를 중요한 의미로 받아들일 가능성이 있다. 
-    </h1>
-    <li>글자 형태 태그 text formatting 태그 </li>
-    <li> bold체를 지정한다. 의미론적 중요성은 없음. </li>
-    <li> strong 태그. bold체로 지정한고, 의미론적(semantic)중요성 의미를 갖음. 웹표준을 준수하고자 한다면 strong! </li>
-    <li> i 태그 , 의미론적 중요성 없음, italic체로 지정  </li>
-    <li> em 태그, 의미론적 중요성 갖음, italic체로 지정 </li>
-    <li> small 태그, small text를 지정 </li>
-    <li> mark 태그 highlighted text 텍스트를 지정한다. 형광펜 칠하는 것. </li>
-    <li>del 태그 deleted text를 지정, 글자 가운데에 줄쳐지는 것 </li>
-    <li> ins 태그  inserted text  글자 밑줄 쳐짐 p태그 사이로 들어감. </li>
-    <li> sub/sup 태그 , 위에 쓰인 text를 지정한다 지수 표현할 때처럼. </li>
-  </ul>
+    <footer class="main-footer">
+      <div class="footer__column">대한민국</div>
+      <div class="footer__column">
+        <span>개인정보처리방침</span>
+        <span>약관</span>
+        <span>설정</span>
+      </div>
 
-  <ul>
-
-    <li> p 태그, 단락을 지정한다</li>
-    <li> br 태그, 줄바꿈</li>
-    <li> pre 태그, 형식화된 text를 지정한다. pre 태그 내의 content는 작성된 그대로 브라우저에 표시된다. </li>
-    <pre> hr 수평줄을 삽입한다 ____________________
-      q 태그, 짧은 인용문을 지정한다. 브라우저는 이용부호로 q 요소를 감싼하다. " hello world"
-      blockquote 긴 이용문 블록을 지정한다. 브라우저는 blockquote 요소를 들여쓰기한다. css를 이용하여 다양한 style을 적용할 수 있다. 
-    </pre>
-  </ul>
-
-  <pre>
-
-
-    
-  </pre>
-
-
-
-
-</p>
-</body>
-</html>
+      <div class="footer__column">
+        <span>광고</span>
+        <span>비즈니스</span>
+        <span>Google 정보</span>
+        <span>검색의 원리</span>
+      </div>
+    </footer>
+    <script
+      src="https://kit.fontawesome.com/f514294906.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</htm>
