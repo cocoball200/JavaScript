@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      pre {
+        background-color: thistle;
+        color: tomato;
+      }
+      .wrapper {
+        font-size: 0;
+        /* 요소 간 간격을 제거 */
+      }
+      .inline-block {
+        display: inline-block;
+        vertical-align: middle; /* inline-blcok요소 수직 정렬*/
+        border: 3px solid blueviolet;
+        background-color: burlywood;
+        font-size: 16px;
+      }
+      .box1 {
+        width: 300px;
+        height: 70px;
+      }
+      .box2 {
+        width: 300px;
+        height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <pre>
+        block과 inline 요소의 특징을 모두 갖는다. inline 레벨 요소와 같이 한 줄에 표현되면서, 
+        width,height,margin 프로퍼티를 모두 지정할 수 있다. 
+        기본적으로 inline 레벨 요소와 흡사하게 줄을 바꾸지 않고, 다른 요소와 함께 한 행에 위치시킬 수 있다. 
+        block레벨 요소처럼 width,height,margin,padding 프로퍼티를 모두 정의할 수 있다. 상,하 여백을 margin과 inline-height 
+        두가지 프로퍼티 모두를 통해 제어할 수 있다
+        content의 너비만큼 가로폭을 차지한다. 
+        inline-block레벨 요소 뒤에 공백등이 있는 경우 정의하지 않은 space가 자동 지정된다. 이것을 회피하는 방법은
+        fighting the space between inline block elements를 참조. 
+        pre는 block요소
+    </pre>
+
+    <div class="inline-block box1">inline-block height 70px</div>
+    <div class="inline-block box2">inline-block height 150px</div>
+
+    <div class="wrapper">
+      <div class="inline-block box1">inline-block height 70px</div>
+      <div class="inline-block box2">inline-block height 150px</div>
+    </div>
+  </body>
+</html>

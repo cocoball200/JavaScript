@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .visible {
+        visibility: visible;
+      }
+      .hidden {
+        visibility: hidden;
+      }
+      table,
+      td {
+        border: 1px solid black;
+      }
+      .collapse {
+        /* table 요소에 사용하며 행이나 열을보이지 않게 한다.*/
+        visibility: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="visible">visibility:visible</h1>
+    <h1 class="hidden">visibility:hidden</h1>
+    <h1 style="display: none">display:none</h1>
+    <!-- table요소의 row,column을 보이지 않게 한다 -->
+
+    <table>
+      <tr>
+        <td>A</td>
+        <td>B</td>
+      </tr>
+      <tr class="collapse">
+        <td>C</td>
+        <td>D</td>
+      </tr>
+    </table>
+  </body>
+</html>
