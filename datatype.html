@@ -2,62 +2,74 @@
 <html>
   <head>
     <script>
-      var str = "Hello";
-      var num = 1;
-      var bool = true;
+        var str = "Hello";
+        var num = 1;
+        var bool = true;
 
-      var foo = "string";
-      console.log(typeof foo);
-      foo = 1;
-      console.log(typeof foo);
+        var foo = "string";
+        console.log(typeof foo);
+        foo = 1;
+        console.log(typeof foo);
 
-      // 에러 없이 잘 돌아가고, 데이터 타입이달라도 재할당 잘 됨.
+        // 에러 없이 잘 돌아가고, 데이터 타입이달라도 재할당 잘 됨.
 
-      var integer = 10;
-      var double = 10.12;
-      var negative = -20;
-      var binary = 0b1000001;
-      var octal = 0o101;
-      var hex = 0x41;
+        var integer = 10;
+        var double = 10.12;
+        var negative = -20;
+        var binary = 0b1000001;
+        var octal = 0o101;
+        var hex = 0x41;
 
-      console.log(binary);
-      console.log(octal);
-      console.log(hex);
+        console.log(binary);
+        console.log(octal);
+        console.log(hex);
 
-      console.log(binary === octal);
-      console.log(octal === hex);
+        console.log(binary === octal);
+        console.log(octal === hex);
 
-      var pInf = 10 / 0;
-      console.log(pInf); // Infinity
+        var pInf = 10 / 0;
+        console.log(pInf); // Infinity
 
-      var nInf = 10 / -0;
-      console.log(nInf); //-Infinity
+        var nInf = 10 / -0;
+        console.log(nInf); //-Infinity
 
-      var nan = 1 * "string";
-      console.log(nan); // Nan
+        var nan = 1 * "string";
+        console.log(nan); // Nan
 
-      var str = "string";
-      for (var i = 0; i < str.length; i++) {
-        console.log(str[i]);
-      }
+        var str = "string";
+        for (var i = 0; i < str.length; i++) {
+          console.log(str[i]);
+        }
 
-      str[0] = "S";
-      console.log(str);
-      //변경이 안됨. 파이썬도 안되던데
+        str[0] = "S";
+        console.log(str);
+        //변경이 안됨. 파이썬도 안되던데
 
-      //문자열 변경하려면.
+        //문자열 변경하려면.
 
-      str = "String";
-      console.log(str);
+        str = "String";
+        console.log(str);
 
-      str += "test";
-      console.log(str);
+        str += "test";
+        console.log(str);
 
-      str = str.substring(0, 3);
-      console.log(str);
+        str = str.substring(0, 3);
+        console.log(str);
 
-      str = str.toUpperCase();
-      console.log(str);
+        str = str.toUpperCase();
+        console.log(str);
+
+        var foo = null;
+        console.log(typeof fooo === null); //false
+        console.log(foo === null); //true
+
+      //symbol
+      var key = Symbol('key');
+      console.log(typeof key);  //symbol
+
+      var obj ={};
+      obj[key] ] "value";
+      console.log(obj[key]); //value
     </script>
   </head>
   <body>
@@ -120,6 +132,25 @@
 
     </pre>
 
-    <pre></pre>
+    <pre>
+        null타입의 값은 null이 유일하다. 자바스크립트는 대소문자를 구별하므로 null 은 NULL , Null 등과 다름.
+
+        프로그래밍 언어에서 null 은 의도적으로 변수에 값이 없다는 것을 명시할 때 사용한다.
+        이는 변수가 기억하는 메모리 어드레스의 "참조 정보를 제거하는 것" 을 의미하며 자바스크립트 엔진은 누구도 참조하지 않는 
+        메모리 영역에 대해 가비지 콜렉션을 수행할 것이다. 
+
+        또는 함수가 호출 되었으나 유효한 값을 반환할 수 없는 경우, 명시적으로 null을 반환한다. 예를들어, 조건에 부함하는 html 요소를 반화하는 
+        Document.querySelector()에 조건에 부함하는 요소를 검색할 수 없으면, null을 반환. 
+
+        타입을 나타내는 문자열 반환하는 typeof 연산자로 null값을 연산해 보면 null이 아닌 object가 나온다. 이는 자바스크립트의 설계상의 오류. 
+        따라서 null타입을 확인할 때 typeof연산자가 아닌 일치연산자(===)를 사용하여야 한다. 
+
+    </pre>
+
+    <pre>
+        symbol은 es6에서 새롭게 추가된 7번째 타입으로 변경 불가능한 원시 타입의 값이다. 심볼은 주로 이름의 충돌 위험이 없는 유일한 객체의 
+        프로퍼티 키를 만들기 위해 사용한다. 심볼은 symbol 함수를 호출해 생성한다. 
+        이때 생성된 심볼 값은 다른 심볼 값들과 다른 유일한 심볼값이다. 
+    </pre>
   </body>
 </html>
