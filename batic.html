@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function sayHello(name, age) {
+        console.log(`Hello ${name} you are ${age} years old`);
+      }
+
+      console.log(sayHello("mia", "28"));
+
+      function sayHello_1(name, age) {
+        console.log(`Hello ${name} you are ${age} years old`);
+      }
+
+      const greetMia = sayHello_1("Mia", 28);
+      console.log(greetMia);
+
+      const calculator = {
+        plus: function (a, b) {
+          return a + b;
+        },
+        substract: function (a, b) {
+          return a - b;
+        },
+        multiply: function (a, b) {
+          return a * b;
+        },
+        divide: function (a, b) {
+          return a / b;
+        },
+        square_root: function (a, b) {
+          return a ** b;
+        },
+      };
+
+      const plus = calculator.plus(5, 5);
+      const substract = calculator.substract(20, 5);
+      const multiply = calculator.multiply(20, 2);
+      const divide = calculator.divide(20, 2);
+      const square_root = calculator.square_root(2, 2);
+      console.log(plus, substract, multiply, divide, square_root);
+    </script>
+  </head>
+</html>
