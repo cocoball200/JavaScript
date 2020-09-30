@@ -1,6 +1,23 @@
 body {
-  background-color: antiquewhite;
+  background-color: #ecf0f1;
 }
-h1 {
-  color: aquamarine;
+
+.btn {
+  cursor: pointer;
+}
+body {
+  color: #34495e;
+}
+
+.clicked {
+  color: #7f8c8d;
+}
+
+.form,
+.greetings {
+  display: none;
+}
+
+.showing {
+  display: blcok;
 }
