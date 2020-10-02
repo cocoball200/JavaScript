@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
     <style>
       body {
-        background-color: aqua;
+        background-color: #3474ef;
       }
       .hex-color__column {
         text-align: center;
@@ -18,57 +19,13 @@
         padding: 10px;
       }
     </style>
-
-    <script>
-      const column = document.querySelector(".hex-color__column");
-      const value = column.querySelector(".hex-color__column__value");
-      const button = column.querySelector("click");
-
-      function hexGenerator(event) {
-        var hexNumber = [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8,
-          9,
-          "A",
-          "B",
-          "C",
-          "D",
-          "E",
-          "F",
-        ];
-
-        var randomColor = Math.floor(Math.random() * hexNumber.length); //6개 뽑아오고! 1~f값무작위로 가져옴
-
-        var result = "#"; //#붙이기
-
-        for (var i = 0; i < 6; i++) {
-          result += hexNumber[randomColor]; //hax넘버에 있는 인덱스를 랜덤 컬러를 통해 가져오겠다.
-          console.log(addShap);
-        }
-        return result;
-      }
-
-      function genColor() {
-        var fullNum = button.addEventListener("click", hexGenerator);
-        console.log(fullNum, typeof fullNum);
-      }
-      function init() {
-        genColor();
-      }
-      init();
-    </script>
   </head>
   <body>
     <div class="hex-color__column">
       <span class="hex-color__column__title"> HEX COLOR </span>
-      <span class="hex-color__column__value"> #3474eff </span>
-      <button class="click">ClICK ME</button>
+      <span class="hex-color__column__value"> #3474ef </span>
+      <input type="button" class="click" value="Click me" />
     </div>
+    <script src="colorPicker.js"></script>
   </body>
 </html>
