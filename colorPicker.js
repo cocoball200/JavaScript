@@ -17,9 +17,15 @@ function genColor() {
   return result;
 }
 
-button.addEventListener("click", function (event) {
-  fullNum = genColor();
-  console.log(fullNum);
-  value.innerHTML = fullNum;
-  body.style.backgroundColor = fullNum;
-});
+function click() {
+  button.addEventListener("click", function (event) {
+    fullNum = genColor();
+    console.log(fullNum);
+    value.innerHTML = fullNum;
+    body.style.backgroundColor = fullNum;
+  });
+}
+function init() {
+  click();
+}
+init();
