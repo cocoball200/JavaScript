@@ -1,9 +1,46 @@
 body {
-  background-color: blue;
+  background-color: #49d9f4;
+  margin: none;
 }
 
+.box__column:first-of-type {
+  padding: 30px;
+}
 .box__column:nth-child(2) {
-  background: white;
-  width: 50px;
-  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.first-img {
+  display: flex;
+  max-width: 800px;
+  max-height: 500px;
+  overflow: hidden;
+  justify-content: space-between;
+}
+/* .first-img img {
+  max-width: initial;
+  max-height: initial;
+  margin-left: -500%;
+  margin-top: -300%;
+} */
+
+.chevron:first-of-type {
+  margin-top: 200px;
+  padding-left: 50px;
+  color: white;
+  opacity: 80%;
+}
+
+.chevron:last-of-type {
+  padding-right: 50px;
+}
+
+.box__column__dot {
+  display: flex;
+  justify-content: center;
+}
+.fa-circle {
+  padding-right: 30px;
+  padding-top: 20px;
+  opacity: 60%;
 }
