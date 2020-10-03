@@ -17,12 +17,12 @@ body {
   overflow: hidden;
   justify-content: space-between;
 }
-/* .first-img img {
+.first-img img {
   max-width: initial;
   max-height: initial;
   margin-left: -500%;
   margin-top: -300%;
-} */
+}
 
 .chevron:first-of-type {
   margin-top: 200px;
