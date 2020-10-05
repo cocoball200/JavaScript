@@ -1,29 +1,33 @@
-const chevron1 = document.querySelector(".chevron1");
-const chevron2 = document.querySelector(".chevron2");
-const img = document.querySelectorAll("img");
-const plus = 1
+const imgList = document.querySelectorAll(".images");
+const imgLength = imgList.length;
+console.log(imgLength);
 
-//list형으로 반환.
-console.log(img);
+var imgIdx = 0;
+var chevron = document.querySelectorAll(".chevron");
+var pre = chevron[0];
+var next = chevron[1];
 
-function nextpage(event) {
-  img[0].innerHTML(hidden);
+pre.addEventListener("click", function () {
+  miner(-1);
+});
+next.addEventListener("click", function () {
+  plus(1);
+});
+
+function plus(num) {
+  imgIdx += num;
+  showImg(imgIdx);
 }
-
-function add(){
-  
-
+function miner(num) {
+  imgIdx -= num;
+  showImg(imgIdx);
 }
-
-location.href="";
-
-function init(){
-  if(chevron1.addEventListener("click",add){
-
-  }else{
-
+function showImg(imgIdx) {
+  if ((imgIdx = -1)) {
+    imgIdx = imgLength - 1; // inx는 0부터 시작, 0~4
+  } else {
   }
-
 }
-init();
 
+function init() {}
+init();
