@@ -10,6 +10,7 @@ body {
   display: flex;
   justify-content: space-between;
 }
+/* 이부분때문에 옆으로 안넘어 가는 것 같은데,,,  */
 .first-img {
   display: flex;
   max-width: 800px;
@@ -17,12 +18,6 @@ body {
   overflow: hidden;
   justify-content: space-between;
 }
-/* .first-img img {
-  max-width: initial;
-  max-height: initial;
-  margin-left: -500%;
-  margin-top: -300%;
-} */
 
 .chevron:first-of-type {
   margin-top: 200px;
@@ -43,4 +38,13 @@ body {
   padding-right: 30px;
   padding-top: 20px;
   opacity: 60%;
+}
+
+.box__column_center {
+  display: inline-block;
+}
+
+.box__column_pre,
+.box__column_next {
+  cursor: pointer;
 }
