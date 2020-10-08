@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <script>
+      // slice() 메서드는 어떤 배열의 begin부터 end까지의 복사본을 새로운 배열의 객체를 반환
+      //파이썬처럼 역시나 end는 포함하지 않음!!!!
+
+      const song = [
+        "Adam",
+        "Cohen",
+        "We go home",
+        "put your bags down",
+        "love is",
+      ];
+      console.log(song.slice(2)); // ["We go home", "put your bags down", "love is"]
+      console.log(song.slice(2, 4)); //["We go home", "put your bags down"]
+      console.log(song.slice(1, 5)); //['Cohen',"We go home", "put your bags down", "love is"]
+      console.log(song.slice(0, 20)); //["Adam", "Cohen", "We go home", "put your bags down", "love is"]
+      console.log(song.slice(0, -1)); //["Adam", "Cohen", "We go home", "put your bags down"]
+      console.log(song.slice(0, -2)); // ["Adam", "Cohen", "We go home"]
+
+      let previousMusic = {
+        singer: "Taylor swift",
+        years: 2002,
+        songs: {
+          badblood: 2010,
+          style: 2008,
+          blankspace: 2018,
+        },
+      };
+      let newMusic = [previousMusic, 2020, "Love", "billboardtop100"];
+      let myMusic = newMusic.slice(0, 2);
+
+      console.log("new Music is " + JSON.stringify(newMusic));
+      console.log("my Music is " + JSON.stringify(myMusic));
+      console.log("new Music year " + newMusic[0].years); //2002
+      console.log("my Music year " + myMusic[0].years); //2002
+
+      previousMusic.years = 2020;
+      console.log("new Music year " + newMusic[0].years); //2020
+      console.log("my Music year " + myMusic[0].years); //2020
+
+      //배열 slice할때 생각해야 할 것
+      var songList = [
+        "Love is",
+        "fall apart",
+        "we go home",
+        "desperado",
+        "style",
+      ];
+      songList.slice(0, 1); // ["love is"]
+      songList.slice(0, 2); // [ "Love is", "fall apart"]
+      songList.slice(2, 2); // []
+      songList.slice(3, 0); //[]
+      songList.slice(3, 30); //["desperado", "style"]
+      songList.slice(100, 1); //[]
+
+      //시작할 인덱스와 끝 인덱스가 같은 slice할 때는 [] , 시작인덱스가 범위를 넘으면 [] ,하지만 시작인덱스가
+      //범위에 맞으면, 끝 인덱스가 범위가 넘어가더라도 배열의 마지막을 리턴, 시작인덱스보다 끝 인덱스가 적으면 []
+
+      //pop , unshift, shift
+      var taylorSongs = ["blank space", "2002", "style", "bad blood"];
+      var lastOfSong = taylorSongs.pop(); //"bad blood" 배열 뒤에거를 가져오고 배열에서 사라짐
+      taylorSongs.unshift("Look what you made me"); // 기존배열의 앞에다 추가
+      console.log(taylorSongs); //["Look what you made me","blank space","2002","style"]
+      var firstOfSong = taylorSongs.shift(); //"Look what you made me" 배열의 앞에 요소 가져옴
+      console.log(taylorSongs); // ["blank space", "2002", "style"]
+    </script>
+  </body>
+</html>
