@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <script>
+      var str = "hello dog, adorable dog, cute dog, small dog, savage dog";
+      console.log(str.indexOf("dog")); //6
+      console.log(str.indexOf("dog", 7)); //20
+      console.log(str.indexOf("dog", 3)); //6
+      //index는 변하지 않는다, str.indexOf("dog", 7)의 경우에는 7번째 인덱스부터 찾기 때문에 20번째에 있는 dog를 찾게 됨.
+      console.log(str.indexOf("cat", 3)); //-1 찾는 값이 없기 때문.
+
+      console.log(str.indexOf("dog")); //6
+      console.log(str.lastIndexOf("dog")); //53
+
+      console.log("Blue Whale".indexOf("", 9)); // returns  9
+      console.log("Blue Whale".indexOf("", 10)); //returns 10
+      console.log("Blue Whale".indexOf("", 20)); //returns 10 20번째 인덱스가 없지만, 마지막 index값 리턴
+
+      console.log("Blue Whale".indexOf(" ", 9)); //-1 9번째 인덱스부터는 " " 값이 없기 때문에.
+      console.log("Blue Whale".indexOf(" ", 3)); //4  3번째 인덱스에 공백찾기.
+
+      var searchTerm = "dog";
+      var indexOfFirst = str.indexOf(searchTerm); //6
+      console.log(
+        "searchTerm은 " + searchTerm + " indexOfFirst 값은 " + indexOfFirst //dog, 6
+      );
+      var secondTerm = str.indexOf(searchTerm, indexOfFirst + 1); //2두번째 dog를 찾음
+      //7번째 인덱스부터 dog를 찾음 cuz ndexOfFirst + 1은 7이니까, searchTerm은 indexOf('dog',7)임.
+      console.log(secondTerm);
+
+      var thirdTerm = str.indexOf(searchTerm, indexOfFirst + 2);
+      //7번째 인덱스부터 dog를 찾는것  그래서 3번째 dog를 찾지 못함~!
+      console.log(thirdTerm); //3번째 dog를 찾으려 했는데, 여전히 두번째 dog를 찾음.
+    </script>
+  </body>
+</html>
