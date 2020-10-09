@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <script>
+      /* arguments 객체는 함수에 전달 된 인수에 해당하는 array 형태의 객체.
+            array 형태란 arguments가 lenght속성과 더불어 0부터 엔덱스 된 다른 속성을
+            가지고 있지만, array의 forEach, map과 같은 내장 메서드를 가지고 있지 않다.
+            arguments 객체는 array가 아니다. array와 비슷하지만 length 이외의 메서드가 없음.
+            */
+
+      function func1(a, b, c) {
+        console.log(arguments[0]);
+        console.log(arguments[1]);
+        console.log(arguments[2]);
+      }
+      func1("hello", "good", "morning");
+
+      function list(type) {
+        var result = "<" + type + "l><li>";
+        var args = Array.prototype.slice.call(arguments, 1);
+        result += args.join("</li><li>");
+        result += "</li></" + type + "l>";
+
+        return result;
+      }
+
+      var listHTML = list("u", "One", "Two", "Three");
+
+      function foo(...args) {
+        return arguments;
+      }
+      console.log(foo(1, 2, 3)); //{0:1,1:2,2:3}
+
+      function bar(a = 1) {
+        arguments[0] = 100;
+        return a;
+      }
+      bar(10); // 10
+
+      function zoo(a) {
+        arguments[0] = 100;
+        return a;
+      }
+      zoo(10); // 100
+
+      //rest파라미터를 쓰려면 ...명
+      function f(a, b, ...theArgs) {}
+
+      function songs(a, b, c, ...manyMoreMusics) {
+        console.log("a", a); //"hello"
+        console.log("b", b); //"style"
+        console.log("manyMoreMusics", manyMoreMusics); //["on","the greatest","dynamite","wildest dream", "love is"]
+      }
+
+      songs(
+        "hello",
+        "style",
+        "on",
+        "the greatest",
+        "dynamite",
+        "wildest dream",
+        "love is"
+      );
+      //   songs("hello", "style", "on");
+      //   console.log(a, b, manyMoreMusics); // "hello","style",[on]
+      /* 3번째 인수가 제공되지 않더라고, manyMoreMusics는 여전히 배열 */
+      //   songs("hello", "style"); // a, hello / b, style / manyMoreMusics, []
+
+      //rest 파라미터는 구분된 이름(함수 표현에정식으로 정의된 것)이 주어지지 않은 유일한 상대이다.
+      /* arguments객체는 함수로 전달된 모든 모두 인수를 포함한다. arguments 객체는 실제 배열이 아니고
+        rest파라미터는  array 인스턴스로 sort, map, forEach , pop 같은 메서드가 바로 인스턴스에 적용
+         */
+
+      function multiply(multiplier, ...args) {
+        return args.map(function (element) {
+          console.log(typeof element); //number
+          return multiplier * element;
+        });
+
+        //2 => multiplier  [1,2,3] => args,eleemt
+      }
+      function init() {
+        var arr = multiply(2, 1, 2, 3);
+        console.log(typeof arr); //array
+        console.log(sortRestArgs(9, 5, 7, 4, 1)); //1,4,5,7,9 정렬해줌 sort.
+        console.log(sortArguments(5, 9, 3, 7, 1));
+      }
+
+      function sortRestArgs(...theArgs) {
+        var sortedArgs = theArgs.sort();
+        return sortRestArgs;
+
+        // arguments.sort(); 는 불가능 arguments는 length 메서드만 쓸 수 있기 때문에 .
+      }
+
+      //쓰고 싶다면
+      function sortArguments() {
+        var args = Array.from(arguments);
+        var sortedArgs = args.sort();
+        return sortedArgs; //1,3,5,7,9
+      }
+      init();
+    </script>
+  </body>
+</html>

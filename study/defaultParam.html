@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      /* 기본 값 함수 매개변수(default function parameter 사용하면 값이 없거나
+          undifined가 전달 될 경우 이름붙은 매개변수를 기본값으로 초기화할 수 있다. */
+      function multiplyDefaultArg(a, b = 10) {
+        console.log("a값과 b값 " + a, b);
+        return a * b;
+      }
+      console.log(multiplyDefaultArg(3, 9)); //27  3*9
+      console.log(multiplyDefaultArg(5)); //50; 5*10
+
+      /* javascirpt 에서 함수의 매개변수는 undifined가 기본이다.
+      그러나 일부 상황에서는 다른 기본 값을 설정하는 것이 유용할 수 았다 => 기본값 매개변수 필요 */
+
+      function multiply2(a, b) {
+        return a * b;
+      }
+      console.log(multiply2(2, 8)); //16
+      console.log(multiply2(5)); //NaN
+
+      function preMultiply(a, b) {
+        b = typeof b !== "undifined" ? b : 1;
+        return a * b;
+      }
+      console.log(preMultiply(2, 8)); //16
+      console.log(preMultiply(5)); //5
+      //하지만 이제 이렇게 필요하지 않음 (a, b = 1)로 주면 되기 때문 .아래처럼
+      /* function multiplyDefaultArg(a, b = 1) {
+          return a * b;}
+          */
+
+      /* 하지만 다른 falsy값을 전달하면 1이 안된다. */
+      function test(num = 1) {
+        console.log(typeof num);
+      }
+
+      test(); //number ,1
+      test(undifined); //number
+      test(20); //number 20
+
+      test(""); //string
+      test(null); //object
+      test("hello"); //string
+
+      function append(value, array = []) {
+        array.push(value);
+        return array;
+      }
+      append(1);
+      //[1];
+      append(2);
+      //[2];
+      //기본 인수는 호출시 새로운 객체가 생성됨 그래서 [1.2]가 안됨.
+
+      let numberOfTimesCalled = 0;
+      function callSomething(thing = something()) {
+        return thing;
+      }
+      function something() {
+        numberOfTimesCalled += 1;
+        return numberOfTimesCalled;
+      }
+
+      callSomething(); //1
+      callSomething(); //2
+
+      /* 앞쪽 매개변수는 뒷쪽의 매개변수 기본값에 사용 가눙 */
+      function info(artist, songName, message = artist + " " + songName) {
+        return [artist, songName, message];
+      }
+      info("taylor swifit", "style"); //["taylor swifit", "style", "taylor swifit style"]
+      info("Adele", "hello", " thank you"); //["Adele", "hello", " thank you"]
+
+      function f(x = 1, y) {
+        return [x, y];
+      }
+      f(); //[1, undefined]
+      f(2); // [2. undifined ]
+      /*매개변수는 왼쪽에서 오른쪽으로 설정되어 있다. 아래 예제에서 뒤쪽에서 기본값이 없는 매개 변수가 있지만 
+       기본값 매개 변수를 덮어 씀 */
+      function destructingAssign([x, y] = [1, 2], { z: z } = { z: 3 }) {
+        return x + y + z;
+      }
+      destructingAssign(); //6
+    </script>
+  </head>
+</html>
