@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <p id="text">DOM을 공부해봅시다, getElementById를요!</p>
+    <button onclick="changeColor('pink')">pink</button>
+    <button onclick="changeColor('yellow')">yellow</button>
+  </br>
+
+    <div id ="parent-id">
+        <p>ID는 한개만 갖기 때문에 </p>
+        <p id="test1"> DOM의 다른 객체는 메서드로 가지지 않음.  </p>
+        <p> throw error</p>
+        <p>Uncaught TypeError: parentDOM.getElementById is not a function </p>
+    </div>
+
+    <body>
+        <input type="button" value="Change this document." onclick="change()">
+        <h2>Header1</h2>
+        <h2>Header2</h2>
+        <h2>Header3</h2>
+        <h2>Header4</h2>
+        <p>Paragraph</p>
+        </body>
+
+    <script>
+
+function change() {
+    // document.getElementsByTagName("H2") 는 <h2> 엘리먼트의
+    // NodeList를 반환(return)합니다. 0부터 시작합니다.
+    
+    var header = document.getElementsByTagName("H2").item(0);
+    // 헤더의 첫번째 자식 노드는 Text 노드입니다.
+    header.firstChild.data = "A dynamic document";
+    // 이제 헤더는 "A dynamic document"가 되었습니다.
+    
+    var para = document.getElementsByTagName("P").item(0);
+    para.firstChild.data = "This is the first paragraph.";
+    
+    // 두번째 문단을 만들기 위한 새로운 Text 노드를 만들었습니다. 
+    var newText = document.createTextNode("This is the second paragraph.");
+    // 두번째 문단을 만들기 위한 새로운 p 엘리먼트를 만들었습니다.
+    var newElement = document.createElement("P");
+    // 새로운 p 엘리먼트에 텍스트를 넣어 문단을 만듭니다.
+    newElement.appendChild(newText);
+    // 생성한 문단을 HTML 문서 마지막에 넣기 위해
+    // (para의 부모인) HTML BODY에 append합니다.
+    para.parentNode.appendChild(newElement);
+  }
+
+        const parentDOM = document.getElementById('parent-id');
+        const test1 = parentDOM.getElementById('test1')
+        //error
+
+
+      function changeColor(color) {
+        var elem = document.getElementById("text");
+        elem.style.color = color;
+      }
+    </script>
+  </body>
+</html>
