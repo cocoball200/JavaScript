@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <script>
+        const arr = ['hello', 'style', 'bad boold'];
+        arr.forEach(element => console.log(element));
+
+        const arraySparse = [1, 2, , 3];
+        let numCallBackRuns = 0;
+
+        arraySparse.forEach(function (element) {
+            console.log(element);
+            numCallBackRuns++
+
+        })
+
+        console.log("numCallbackRuns : ", numCallBackRuns);
+
+        const items = ['item1', 'item2', 'item3'];
+        const copy = [];
+
+        for (let i = 0; i < items.length; i++) {
+            copy.push(items[i]);
+        }
+        items.forEach(function (item) {
+            copy.push(item);
+        });
+        console.log(copy);
+
+    </script>
+</body>
+
+</html>
