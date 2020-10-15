@@ -62,8 +62,8 @@ body{
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    height: 200px;
-    width: 200px;
+    height: 100px;
+    width: 100px;
 }
 
 .game-cell::after{
