@@ -11,7 +11,7 @@ let player = xSymbol;
 //game variables
 let gameIsLive = true;
 let xIsNext = true;
-let scoreArray = ['', '', '', '', '', '', '', '', ''];
+let scoreArray = [];
 
 function addScore(clickTarget, targetIndex) {
     scoreArray[targetIndex] = player;
