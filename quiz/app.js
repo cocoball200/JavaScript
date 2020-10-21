@@ -1,10 +1,14 @@
-const quizContainner = document.querySelector('.quiz');
-const resultsContainer = document.querySelector('.result');
-const submitButton = document.querySelector('.submit');
+const wholeContainer = document.querySelector('.container__whole');
+const startButton = document.querySelector('.start__button');
+const submitButton = document.querySelector('.submit__button');
+const nextButton = document.querySelector('.next__button');
+const questionTitle = document.querySelector('.title__text');
+const codeTEXT = document.querySelector('.code__text');
+const choiceDIv = document.querySelector('.container__choice');
+const choiceText = document.querySelector('.choice__text'); //list
+const CLICK_EVENT = "click";
 
-const CLICK_EVENT = 'click'
-
-const data = [
+const loadedData = [
     {
         question: "Who invented JavaScript?",
         answers: {
@@ -35,54 +39,66 @@ const data = [
     }
 ];
 
+var submitedAnswer = 99;
+var count = 0;
 
-function buildQuiz() {
-    const output = [];
-
-    data.forEach((currentQuestion, questionNumber) => {
-
-        const answers = [];
-
-        for (letter in currentQuestion.answers) {
-            answers.push(
-                `<label>
-                <input type = "radio" name= "question${questionNumber}"
-                value="${letter} "> ${letter} : ${currentQuestion.answers[letter]}
-                </label>`
-            );
-        }
-
-        output.push(
-            `<div class ="question"> ${currentQuestion.question} </div>
-            <div class="answers"> ${answers.join('')} </div>`
-        );
+function showChoices(lengths, choiceData) {
+    var divList = [];
+    for (let choiceIndex = 0; choiceIndex < lengths; choiceIndex++) {
+        var div = document.createElement("div");
+        div.classList.add("choice__text");
+        div.textContent = choiceData[choiceIndex];
+        div.setAttribute("data-index", choiceIndex);
+        divList.push(choiceDIv.appendChild(div));
 
     }
-    );
-    quizContainner.innerHTML = output.join('');
-}
-function showResult() {
-    const answerContainers = quizContainner.querySelectorAll('.answers');
-    let numCorrect = 0;
-    data.forEach((currentQuestion, questionNumber) => {
-        const answerContainer = answerContainers[questionNumber];
-        const selector = `input[name=question${questionNumber}]:checked`;
-        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-
-        if (userAnswer === currentQuestion.correctAnswer) {
-            numCorrect++;
-
-            answerContainers[questionNumber].style.color = 'red';
-        }
-        else {
-            answerContainers[questionNumber].style.color = 'blue';
-        }
-    });
-
-    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    return divList;
 }
 
-buildQuiz();
+function handlerChoiceClick(event) {
+    if (!null) {
+        var userChoice = event.target;
+        submitedAnswer = parseInt(userChoice.getAttribute('data-index'), 4);
+    }
+}
 
-submitButton.addEventListener(CLICK_EVENT, showResult);
+function showQuestion() {
+    for (var index in loadedData) {
+        console.log(count);
+        questionTitle.textContent = loadedData[index].question;
+        if (!null) {
+            codeTEXT.textContent = loadedData[index].code;
+        } //if
+        showChoices(loadedData[index].choices.length, loadedData[index].choices);
+        console.log(index);
+        choiceDIv.addEventListener(CLICK_EVENT, handlerChoiceClick);
+        submitButton.addEventListener(CLICK_EVENT, function () {
+            var correctAnswer = loadedData[index].correctAnswer;
+            console.log(correctAnswer, submitedAnswer);
+            console.log(submitedAnswer === correctAnswer);
+            if (submitedAnswer === correctAnswer) {
+                submitButton.setAttribute("hidden", "");
+                nextButton.removeAttribute("hidden");
+            }
+        }); //addevent
+        nextButton.addEventListener(CLICK_EVENT, function () {
+        })
+    }//for
+}//function
 
+function startGame() {
+    wholeContainer.removeAttribute("hidden");
+    startButton.setAttribute("hidden", "");
+    submitButton.removeAttribute("hidden");
+    showQuestion();
+}
+
+function init() {
+    wholeContainer.setAttribute("hidden", "");
+    submitButton.setAttribute("hidden", "");
+    nextButton.setAttribute("hidden", "");
+    startButton.removeAttribute("hidden")
+    startButton.addEventListener(CLICK_EVENT, startGame);
+}
+
+init();
