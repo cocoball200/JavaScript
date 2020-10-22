@@ -7,6 +7,7 @@ const codeTEXT = document.querySelector('.code__text');
 const choiceDIv = document.querySelector('.container__choice');
 const choiceText = document.querySelector('.choice__text'); //list
 const CLICK_EVENT = "click";
+const HIDDEN = "hidden";
 
 const loadedData = [
     {
@@ -77,8 +78,8 @@ function showQuestion() {
             console.log(correctAnswer, submitedAnswer);
             console.log(submitedAnswer === correctAnswer);
             if (submitedAnswer === correctAnswer) {
-                submitButton.setAttribute("hidden", "");
-                nextButton.removeAttribute("hidden");
+                submitButton.setAttribute(HIDDEN, "");
+                nextButton.removeAttribute(HIDDEN);
             }
         }); //addevent
         nextButton.addEventListener(CLICK_EVENT, function () {
@@ -87,17 +88,17 @@ function showQuestion() {
 }//function
 
 function startGame() {
-    wholeContainer.removeAttribute("hidden");
-    startButton.setAttribute("hidden", "");
-    submitButton.removeAttribute("hidden");
+    wholeContainer.removeAttribute(HIDDEN);
+    startButton.setAttribute(HIDDEN, "");
+    submitButton.removeAttribute(HIDDEN;
     showQuestion();
 }
 
 function init() {
-    wholeContainer.setAttribute("hidden", "");
-    submitButton.setAttribute("hidden", "");
-    nextButton.setAttribute("hidden", "");
-    startButton.removeAttribute("hidden")
+    wholeContainer.setAttribute(HIDDEN, "");
+    submitButton.setAttribute(HIDDEN, "");
+    nextButton.setAttribute(HIDDEN, "");
+    startButton.removeAttribute(HIDDEN)
     startButton.addEventListener(CLICK_EVENT, startGame);
 }
 
