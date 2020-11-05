@@ -85,6 +85,18 @@ console.log("1" + by);
 const jn = new Employee('hayoon', 'female', 'google');
 console.log("2" + jn);
 
+//최대 최소 구하기 
+var numbers = [10, 20, 30, 16, 34, 5];
+var max = Math.max.apply(null, numbers);
+var min = Math.min.apply(null, numbers);
+console.log(max, min);
+
+const nums = [10, 20, 30, 16, 11];
+const maxNums = Math.max(...nums);
+const minNums = Math.min(...nums);
+console.log(maxNums, minNums);
+
+
 function a() {
     var argv = Array.from(arguments);
     argv.forEach(function (arg) {
@@ -94,11 +106,34 @@ function a() {
 
 a(1, 2, 3);
 
+
 document.body.innerHTML = '<div>a</div><div>b</div><div>c</div>';
 var nodeLIst = document.querySelector('div');
 var nodeArr = Array.from(nodeLIst);
 nodeArr.forEach(function (node) {
     console.log(node);
 });
+//Array.from을 쓰면 굳이 Array.prototype.slice.call()로 할 필요가 없다. 
 
-  //Array.from을 쓰면 굳이 Array.prototype.slice.call()로 할 필요가 없다. 
+var obj = {
+    outer: function () {
+        console.log(this);
+        var innerFunc = function () {
+            console.log(this);
+        };
+        innerFunc.call(this);
+    }
+};
+
+obj.outer();
+
+var obj1 = {
+    outer: function () {
+        console.log(this);
+        var innerFunc = function () {
+            console.log(this);
+        }.bind(this);
+        innerFunc();
+    }
+};
+obj1.outer();
