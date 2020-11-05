@@ -3,14 +3,65 @@ var obj = {
     inner: { methodB: function () { console.log(this); } }
 };
 
-obj.methodA();
-obj['methodA']();
+obj.methodA(); //obj
+obj['methodA'](); //obj
 
-obj.inner.methodB();
-obj.inner['methodB']();
-obj['inner'].methodB();
-obj['inner']['methodB']();
+obj.inner.methodB(); //inner
+obj.inner['methodB'](); //inner
+obj['inner'].methodB(); //inner
+obj['inner']['methodB'](); //inner 
 
+var obj1 = {
+    outer: function () {
+        console.log(this);
+        var innerFunc = function () {
+            console.log(this);
+        }
+        innerFunc()
+
+        var obj2 = {
+            innerMethod: innerFunc
+        };
+        obj.innerMethod();
+    }
+};
+obj1.outer()
+
+//this 를 바인딩하지 않는 함수  상위 스코프의 this를 그대로 활용할 수 있다.
+
+var arrow = {
+    outer: function () {
+        console.log(this);
+        var innerFunc = () => {
+            console.log(this);
+        };
+        innerFunc();
+    }
+};
+arrow.outer();
+
+
+var thisFunc = {
+    a: 1,
+    method: function (x, y) {
+        console.log(this.a, x, y);
+    }
+};
+thisFunc.method(2, 3);
+thisFunc.method.call({ a: 4 }, 5, 6);
+
+function a() {
+    var argv = Array.prototype.slice.call(arguments);
+    argv.forEach(function (arg) {
+        console.log(arg);
+    });
+}
+a(1, 2, 3);
+
+document.body.innerHTML = '<div>a</div><div>b</div><div>c</div>';
+var nodeList = document.querySelectorAll('div');
+var nodeArr = Array.prototype.slice.call(nodeList);
+nodeArr.forEach(function (node) { console.log(node); });
 
 function Person(name, gender) {
     this.name = name;
