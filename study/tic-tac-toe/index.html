@@ -9,27 +9,23 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="title"> Tic <span> Tac </span> Toe</h1>
-        <div class="status-action">
-            <div class="status">X IS FIRST</div>
-            <div class="reset">reset</div>
-        </div>
+    <section>
 
-        <div class="game-grid">
-            <div class="game-cell" index="0"></div>
-            <div class="game-cell" index="1"></div>
-            <div class="game-cell" index="2"></div>
-            <div class="game-cell" index="3"></div>
-            <div class="game-cell" index="4"></div>
-            <div class="game-cell" index="5"></div>
-            <div class="game-cell" index="6"></div>
-            <div class="game-cell" index="7"></div>
-            <div class="game-cell" index="8"></div>
-        </div>
-    </div>
+        <div class="board">
+            <div class="board__cell" data-index="0"></div>
+            <div class="board__cell" data-index="1"></div>
+            <div class="board__cell" data-index="2"></div>
+            <div class="board__cell" data-index="3"></div>
+            <div class="board__cell" data-index="4"></div>
+            <div class="board__cell" data-index="5"></div>
+            <div class="board__cell" data-index="6"></div>
+            <div class="board__cell" data-index="7"></div>
+            <div class="board__cell" data-index="8"></div>
+    </section>
 
-    </div>
+    <button type="button" class="start__button">START GAME</button>
+    <button type="button" class="restart__button">RESTART GAME</button>
+
     <script src="app.js"></script>
 
 </body>
