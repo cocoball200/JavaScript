@@ -96,3 +96,5 @@ fruits.forEach(function (fruit) {
     $li.addEventListener('click', alertFruitBuilder(fruit));
     $ul.appendChild($li);
 });
+
+
