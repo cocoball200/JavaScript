@@ -22,3 +22,25 @@ each({ a: 'd', b: 'la', c: 'lol' }, function (value, index, data) {
     console.log('3')
     console.log('is working? ');
 })
+
+
+var every = function (collection, iterator) {
+    if (iterator === undefined) {
+      for (var key in collection) {
+        if (!collection[key]) return false;
+      }
+      return true;
+    } else {
+      for (var key in collection) {
+        if (!iterator(collection[key])) return false;
+      }
+      return true;
+    }
+  };
+
+var list = [1,2,3];
+
+every(list, function(item){
+  console.log(item);
+  return item;
+})
