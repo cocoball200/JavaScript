@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js">
+    </script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var a = 10;
+
+        function add() {
+            a += 10;
+        }
+        var startFunc = _.once(add);
+        console.log(a); //10
+        startFunc();
+        console.log(a); //20
+        startFunc();
+        console.log(a);// 20
+        startFunc();
+        console.log(a); //20
+
+        <pre>
+            Then the first time the ‘startFunc()’ is called the value of ‘a’ is incremented by 10 and becomes 20.
+            So the output of first time calling is 20. Then the next time when ‘startFunc()’ is called the value of ‘a’ is again supposed to be incremented by 10
+            but this does not happen.
+            https://www.geeksforgeeks.org/underscore-js-_-once/</pre>
+    </script>
+</body>
+
+</html>
