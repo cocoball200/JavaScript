@@ -1,6 +1,7 @@
 _.each([1, 2, 3], function (val, idx, list) {
     console.log(val, idx, list)
-}); // 1 0 list
+});
+// 1 0 list
 // 2 1 list
 //3 2 list
 //[1,2, 3] return 값은 원래 자신이 받았던 첫번째 인자 그대로 리턴,
@@ -31,3 +32,4 @@ var user = [{
 }]
 
 _.pluck(users, 'name'); //name에 대한 value값 들 리턴. 
+
