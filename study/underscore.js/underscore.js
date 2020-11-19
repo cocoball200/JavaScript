@@ -33,3 +33,15 @@ var user = [{
 
 _.pluck(users, 'name'); //name에 대한 value값 들 리턴. 
 
+_.each = function (collection, iterator) {
+    if (Array.isArray(collection)) {
+        for (let i = 0; i < collection.length; i++) {
+            iterator(collection[i], i, collection);
+        }
+    } else {
+        for (let key in collection) {
+            iterator(collection[key], key, collection);
+        }
+    }
+};
+
