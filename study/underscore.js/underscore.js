@@ -45,3 +45,14 @@ _.each = function (collection, iterator) {
     }
 };
 
+_.filter = function (collection, test) {
+    const result = [];
+
+    _.each(collection, function (item) {
+        if (test(item)) {
+            result.push(item)
+        }
+    });
+    return result;
+};
+
